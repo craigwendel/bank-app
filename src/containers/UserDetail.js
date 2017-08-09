@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectUser, selectAccount }  from '../actions/index';
+import { selectAccount } from '../actions/index'
 //make sure action created flows through all reducers
 import { bindActionCreators } from 'redux';
 //import router Link
@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 class UserDetail extends Component {
 
   render () {
+
     if(!this.props.user) {
       return (
         <div>Please select a user...</div>
@@ -16,9 +17,9 @@ class UserDetail extends Component {
     }
     //get user id from params of URL
     const { id } = this.props.match.params;
+    console.log('userDetails props',this.props);
     //map over the accounts for the user to create links to them.
     let accounts = this.props.user.accounts.map(account => {
-
       //creating a Link with the account type for
       //each account.
       return (
